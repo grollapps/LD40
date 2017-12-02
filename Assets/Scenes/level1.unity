@@ -427,6 +427,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &749055094 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1423583627684744, guid: f4e8609c22aee934a9a1661e32527f08,
+    type: 2}
+  m_PrefabInternal: {fileID: 1015654129}
+--- !u!225 &749055095
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 749055094}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &859907546
 Prefab:
   m_ObjectHideFlags: 0
@@ -664,9 +680,40 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114041508698873716, guid: f4e8609c22aee934a9a1661e32527f08,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.72794116
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041508698873716, guid: f4e8609c22aee934a9a1661e32527f08,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.36168188
+      objectReference: {fileID: 0}
+    - target: {fileID: 114041508698873716, guid: f4e8609c22aee934a9a1661e32527f08,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.08028762
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4e8609c22aee934a9a1661e32527f08, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1154926408 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1172393954591884, guid: f4e8609c22aee934a9a1661e32527f08,
+    type: 2}
+  m_PrefabInternal: {fileID: 1015654129}
+--- !u!225 &1154926409
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1154926408}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1161080670
 Prefab:
   m_ObjectHideFlags: 0
@@ -897,6 +944,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d15b898786367846bd524dedb13ff58, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1758556499 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1620416776267290, guid: f4e8609c22aee934a9a1661e32527f08,
+    type: 2}
+  m_PrefabInternal: {fileID: 1015654129}
+--- !u!225 &1758556500
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1758556499}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1830964548
 Prefab:
   m_ObjectHideFlags: 0

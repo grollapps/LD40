@@ -20,7 +20,12 @@ public class HudManager : MonoBehaviour {
             triggerStateOn[i] = false;
         }
 
-        triggerStateOn[0] = true; //first always starts on	
+        for (int i = 0; i < triggerStateOn.Length; i++) {
+            toggleTrigger(i, false);
+        }
+
+        //triggerStateOn[0] = true; //first always starts on	
+        toggleTrigger(0);
 	}
 	
 	// Update is called once per frame
@@ -28,14 +33,36 @@ public class HudManager : MonoBehaviour {
 		
 	}
 
+    /// <summary>
+    /// Swap the referenced trigger to either on or off, opposite of the current state
+    /// </summary>
+    /// <param name="index"></param>
     public void toggleTrigger(int index) {
         bool newState = !triggerStateOn[index];
+        toggleTrigger(index, newState);
+    }
+
+     public void toggleTrigger(int index, bool newState) {
+        Global.instance.inputHandler.setMoverInputActive(index, newState);
         triggerStateOn[index] = newState;
-        if (triggerOnText.Length > index && triggerOnText[index] != null) {
-            triggerOnText[index].GetComponent<CanvasRenderer>().SetAlpha(newState ? 1.0f : 0.0f);
+        if (triggerOnText.Length > index) {
+            setTextOnOff(triggerOnText[index], newState);
         }
-        if (triggerOffText.Length > index && triggerOffText[index] != null) {
-            triggerOffText[index].GetComponent<CanvasRenderer>().SetAlpha(newState ? 0.0f : 1.0f);
+        if (triggerOffText.Length > index) {
+            setTextOnOff(triggerOffText[index], !newState);
         }
+    }
+
+    private void setTextOnOff(Text t, bool isVisible) {
+        if (t != null) {
+            float a = isVisible ? 1.0f : 0.0f;
+            CanvasGroup cg = t.GetComponent<CanvasGroup>();
+            if (cg != null) {
+                cg.alpha = a;
+            } else {
+                t.GetComponent<CanvasRenderer>().SetAlpha(a);
+            }
+        }
+
     }
 }

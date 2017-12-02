@@ -8,6 +8,7 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour {
 
     private Mover[] movers = new Mover[6];  //one per input toggle key
+    private bool[] moverInputActive = new bool[6];
     private int numMovers = 0; //number of actual movers in play
 
     //Amount side tick move multiplier
@@ -16,6 +17,11 @@ public class InputHandler : MonoBehaviour {
     //Amount fwd tick move multiplier
     public float fwdAmt = 0.01f;
 
+    void Awake() {
+        for (int i = 0; i < moverInputActive.Length; i++) {
+            moverInputActive[i] = false;
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +37,14 @@ public class InputHandler : MonoBehaviour {
     public void addMover(Mover m) {
         Debug.Log("Add mover " + numMovers);
         movers[numMovers++] = m;
+    }
+
+    public void setMoverInputActive(int index, bool isActive) {
+        moverInputActive[index] = isActive;
+    }
+
+    public bool isMoverInputActive(int index) {
+        return moverInputActive[index];
     }
 
     /// <summary>
@@ -74,7 +88,7 @@ public class InputHandler : MonoBehaviour {
     private void fireLeftRight(float val) {
         for (int i = 0; i < movers.Length; i++) {
             Mover m = movers[i];
-            if (m != null) {
+            if (m != null && isMoverInputActive(i)) {
                 m.addLeftRight(val * sideAmt);
             }
         }
@@ -84,7 +98,7 @@ public class InputHandler : MonoBehaviour {
     private void fireDownUp(float val) {
         for (int i = 0; i < movers.Length; i++) {
             Mover m = movers[i];
-            if (m != null) {
+            if (m != null && isMoverInputActive(i)) {
                 m.addDownUp(val * fwdAmt);
             }
         }
