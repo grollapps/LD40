@@ -26,8 +26,15 @@ public class Mover : MonoBehaviour {
 	void Start () {
         prevPosition = transform.position;
         lastSpeed = curSpeed;
-        Global.instance.inputHandler.addFirstMover(this);
+        Global.instance.inputHandler.addMover(this);
 	}
+
+    public void setStartParams(Vector3 position, Vector3 speed) {
+        prevPosition = position;
+        transform.position = position;
+        lastSpeed = speed;
+        curSpeed = speed;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,15 +58,6 @@ public class Mover : MonoBehaviour {
         nextLeftRight = 0;
         nextDownUp = 0;
 	}
-
-    void LateUpdate() { //TODO only do once
-        Camera cam = Global.instance.mainCamera;
-        Vector3 target = transform.position;
-        Vector3 curCamPos = cam.transform.position;
-        Vector3 nextCamPos = target - Global.instance.camOffset;
-        cam.transform.position = Vector3.Lerp(curCamPos, nextCamPos, 0.8f * Time.deltaTime);
-    }
-
 
     /// <summary>
     /// Add left or right position.  Left is negative values, right is positive.

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dronePrefab: {fileID: 1286523019266026, guid: 0b8536b003746b24b8455a4ebd88b965,
     type: 2}
-  droneSpawnOffset: {x: 0, y: 0, z: -2}
+  droneSpawnOffset: {x: 0, y: 0, z: -4}
 --- !u!114 &114924257277808944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curSpeed: {x: 0, y: 0, z: 0}
-  speedUpRate: 0.5
+  speedUpRate: 0.3
   speedUpFactor: 0.04
 --- !u!136 &136918044610388566
 CapsuleCollider:

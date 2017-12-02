@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Queen : Bee {
+public class Drone : Bee {
 
     private Mover myMover;
 
-    public GameObject dronePrefab;
-    public Vector3 droneSpawnOffset;
+    //public GameObject dronePrefab;
+    //public Vector3 droneSpawnOffset;
 
     void Awake() {
         myMover = GetComponent<Mover>();
     }
 
     protected override bool SpawnDrone() {
-        GameObject drone = Instantiate(dronePrefab);
-        int numDrones = Global.instance.inputHandler.getNumMovers();
-        Vector3 position = transform.position + (droneSpawnOffset * numDrones);
-        drone.GetComponent<Mover>().setStartParams(position, myMover.curSpeed);
-        return true;
+        //GameObject drone = Instantiate(dronePrefab);
+        //drone.transform.position += droneSpawnOffset;
+        //drone.GetComponent<Mover>().setStartSpeed(myMover.curSpeed);
+        return false;
     }
 
     protected override bool DamagePickup() {

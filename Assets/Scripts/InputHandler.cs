@@ -8,6 +8,7 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour {
 
     private Mover[] movers = new Mover[6];  //one per input toggle key
+    private int numMovers = 0; //number of actual movers in play
 
     //Amount side tick move multiplier
     public float sideAmt = 0.05f;
@@ -24,18 +25,30 @@ public class InputHandler : MonoBehaviour {
     public void addFirstMover(Mover m) {
         Debug.Log("Add first mover");
         movers[0] = m;
+        numMovers = 1;
     }
 
     public void addMover(Mover m) {
-        Debug.Log("Add mover");
-        for (int i = 0; i < movers.Length; i++) {
-            if (movers[i] == null) {
-                Debug.Log("new mover i=" + i);
-                movers[i] = m;
-                break;
-            }
-        }
+        Debug.Log("Add mover " + numMovers);
+        movers[numMovers++] = m;
     }
+
+    /// <summary>
+    /// Determines where the camera should be to be able to see all movers 
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 getCamTarget() {
+        if (numMovers == 1) {
+            return movers[0].transform.position;
+        }
+        //Somewhere between first and last
+        return Vector3.Lerp(movers[0].transform.position, movers[numMovers - 1].transform.position, 0.9f);
+    }
+
+    public int getNumMovers() {
+        return numMovers;
+    }
+
 	
 	// Update is called once per frame
 	void Update () {

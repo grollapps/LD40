@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23494269503213444}
   - component: {fileID: 54368877657213414}
   - component: {fileID: 114580234173908572}
-  - component: {fileID: 114442392312888776}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -99,17 +98,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!114 &114442392312888776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286523019266026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63216fbcd3d4d054c96698c8e54f20c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114580234173908572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curSpeed: {x: 0, y: 0, z: 0}
-  speedUpRate: 0.5
+  speedUpRate: 0.3
   speedUpFactor: 0.04
 --- !u!136 &136319471519940040
 CapsuleCollider:

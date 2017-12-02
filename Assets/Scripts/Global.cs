@@ -13,7 +13,6 @@ public class Global : MonoBehaviour {
     public Camera mainCamera;
     public Vector3 camOffset = Vector3.zero; //default camera offset from target
 
-
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -32,6 +31,17 @@ public class Global : MonoBehaviour {
         if (mainCamera == null) {
             Debug.LogError("Camera missing");
         }
+    }
+
+    void LateUpdate() {
+        Camera cam = Global.instance.mainCamera;
+        Vector3 target = inputHandler.getCamTarget();
+        Vector3 curCamPos = cam.transform.position;
+        Vector3 offset = Global.instance.camOffset;
+        offset = new Vector3(offset.x, offset.y * inputHandler.getNumMovers(), offset.z); //adjust height (zoom out for more movers)
+        Vector3 nextCamPos = target - offset;
+        float smoothSpeed = Vector3.Magnitude(nextCamPos - curCamPos) * 0.5f;
+        cam.transform.position = Vector3.Lerp(curCamPos, nextCamPos, smoothSpeed * Time.deltaTime);
     }
 
 	// Use this for initialization
