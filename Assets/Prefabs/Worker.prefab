@@ -23,10 +23,9 @@ GameObject:
   - component: {fileID: 136319471519940040}
   - component: {fileID: 23494269503213444}
   - component: {fileID: 54368877657213414}
-  - component: {fileID: 114580234173908572}
-  - component: {fileID: 114474811713455338}
+  - component: {fileID: 114176861185287086}
   m_Layer: 0
-  m_Name: Drone
+  m_Name: Worker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286523019266026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 1, z: -5.04}
-  m_LocalScale: {x: 0.7, y: 0.3, z: 1.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0.39578068}
+  m_LocalScale: {x: 0.3, y: 0.15, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 939baa8a1f22eb449ba07562d744eed2, type: 2}
+  - {fileID: 2100000, guid: 9f8a5d9dfa3ccfa468f39243e3bebede, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +98,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!114 &114474811713455338
+--- !u!114 &114176861185287086
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,25 +106,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1286523019266026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3450020243d61ea49bb895ef4ea85e3e, type: 3}
+  m_Script: {fileID: 11500000, guid: cd65f55e00ba4824cac968cf034f19f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workerPrefab: {fileID: 1286523019266026, guid: 38c80545a85ff3d4cbf2834b3296cc65,
-    type: 2}
---- !u!114 &114580234173908572
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286523019266026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96efc715e9cdcec488c978ad7b9636d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curSpeed: {x: 0, y: 0, z: 0}
-  speedUpRate: 0.3
-  speedUpFactor: 0.04
+  curSpeed: {x: 1, y: 0, z: 1}
+  speedUpRate: 0.5
+  speedUpFactor: 1
+  orbitDist: 0.5
 --- !u!136 &136319471519940040
 CapsuleCollider:
   m_ObjectHideFlags: 1

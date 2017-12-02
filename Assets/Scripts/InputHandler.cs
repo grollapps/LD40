@@ -48,6 +48,17 @@ public class InputHandler : MonoBehaviour {
     }
 
     /// <summary>
+    /// Stop all movers
+    /// </summary>
+    public void FreezeAll() {
+        for (int i = 0; i < numMovers; i++) {
+            if (movers[i] != null) {
+                movers[i].Freeze();
+            }
+        }
+    }
+
+    /// <summary>
     /// Determines where the camera should be to be able to see all movers 
     /// </summary>
     /// <returns></returns>

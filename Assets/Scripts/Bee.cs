@@ -62,6 +62,7 @@ public class Bee : HitReceiver {
 
     protected virtual bool EndRound() {
         Debug.Log("End Round");
+        Global.instance.EndRound();
         return false;
     }
 

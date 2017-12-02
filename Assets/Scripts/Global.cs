@@ -50,6 +50,10 @@ public class Global : MonoBehaviour {
         cam.transform.position = Vector3.Lerp(curCamPos, nextCamPos, smoothSpeed * Time.deltaTime);
     }
 
+    public void EndRound() {
+        inputHandler.FreezeAll();
+    }
+
 	// Use this for initialization
 	void Start () {
 		

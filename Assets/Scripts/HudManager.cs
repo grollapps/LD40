@@ -14,6 +14,8 @@ public class HudManager : MonoBehaviour {
     public Text[] triggerOnText;
     public Text[] triggerOffText;
 
+    public float metersToGoal = 0f;
+
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < triggerStateOn.Length; i++) {

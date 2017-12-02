@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Drone : Bee {
 
+    public GameObject workerPrefab;
+
     private Mover myMover;
 
     //public GameObject dronePrefab;
@@ -11,6 +13,12 @@ public class Drone : Bee {
 
     void Awake() {
         myMover = GetComponent<Mover>();
+    }
+
+    public bool SpawnWorker() {
+        GameObject worker = Instantiate(workerPrefab);
+        worker.GetComponent<RadialMover>().setParent(transform);
+        return true;
     }
 
     protected override bool SpawnDrone() {
@@ -34,7 +42,7 @@ public class Drone : Bee {
 
     // Use this for initialization
     void Start () {
-		
+        SpawnWorker(); //Test, remove
 	}
 	
 	// Update is called once per frame

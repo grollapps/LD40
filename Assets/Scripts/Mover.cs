@@ -22,8 +22,10 @@ public class Mover : MonoBehaviour {
     private float nextLeftRight = 0;
     private float nextDownUp = 0;
 
+    private bool isFroze = false;
+
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
         prevPosition = transform.position;
         lastSpeed = curSpeed;
         Global.instance.inputHandler.addMover(this);
@@ -35,9 +37,17 @@ public class Mover : MonoBehaviour {
         lastSpeed = speed;
         curSpeed = speed;
     }
+
+    public virtual void Freeze() {
+        isFroze = true;
+    }
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
+        if (isFroze) {
+            return;
+        }
+
         curSpeed = (lastSpeed.magnitude + (speedUpRate * speedUpFactor) * Time.deltaTime) * transform.forward;
         lastSpeed = curSpeed;
         //curSpeed *= Time.deltaTime  * transform.forward;
