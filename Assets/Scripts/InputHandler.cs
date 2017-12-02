@@ -59,7 +59,16 @@ public class InputHandler : MonoBehaviour {
         float downUp = Input.GetAxis("Vertical");
         fireDownUp(downUp);
 
-        //TODO Test num keys
+        //Test num keys
+        if (Input.GetButtonDown("1")) {
+            Global.instance.hudManager.toggleTrigger(0);
+        }
+        if (Input.GetButtonDown("2")) {
+            Global.instance.hudManager.toggleTrigger(1);
+        }
+        if (Input.GetButtonDown("3")) {
+            Global.instance.hudManager.toggleTrigger(2);
+        }
 	}
 
     private void fireLeftRight(float val) {

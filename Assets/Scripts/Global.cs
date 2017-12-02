@@ -9,6 +9,7 @@ public class Global : MonoBehaviour {
 
     public static Global instance;
 
+    public HudManager hudManager;
     public InputHandler inputHandler;
     public Camera mainCamera;
     public Vector3 camOffset = Vector3.zero; //default camera offset from target
@@ -25,6 +26,11 @@ public class Global : MonoBehaviour {
         inputHandler = GameObject.Find("GameManager").GetComponent<InputHandler>();
         if (inputHandler == null) {
             Debug.LogError("Could not find InputHandler");
+        }
+
+        hudManager = GameObject.Find("HUD").GetComponent<HudManager>();
+        if (hudManager == null) {
+            Debug.LogError("Could not find HUD Manager");
         }
 
         mainCamera = Camera.main;
