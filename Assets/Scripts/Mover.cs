@@ -35,17 +35,18 @@ public class Mover : MonoBehaviour {
         lastSpeed = curSpeed;
         //curSpeed *= Time.deltaTime  * transform.forward;
         Vector3 influence = new Vector3(nextLeftRight, 0, nextDownUp); //TODO cap influence amounts
-        Debug.Log("Update pos");
-        Debug.Log(influence);
-        Debug.Log(curSpeed);
+        //Debug.Log("Update pos");
+        //Debug.Log(influence);
+        //Debug.Log(curSpeed);
 
-        Debug.Log("prev pos");
-        Debug.Log(prevPosition);
-        Vector3 nextPos = prevPosition + influence + curSpeed;
-        Debug.Log("new pos");
-        Debug.Log(nextPos);
+        //Debug.Log("prev pos");
+        //Debug.Log(prevPosition);
+        //Vector3 nextPos = prevPosition + influence + curSpeed;
+        Vector3 nextPos = transform.position + influence + curSpeed;
+        //Debug.Log("new pos");
+        //Debug.Log(nextPos);
 
-        prevPosition = transform.position;
+        //prevPosition = transform.position;
         transform.position = nextPos;
         nextLeftRight = 0;
         nextDownUp = 0;
