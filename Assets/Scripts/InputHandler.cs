@@ -62,6 +62,14 @@ public class InputHandler : MonoBehaviour {
         }
     }
 
+    public void DecreaseAllSpeed(float amt) {
+        for (int i = 0; i < numMovers; i++) {
+            if (movers[i] != null) {
+                movers[i].DecreaseSpeed(amt);
+            }
+        }
+    }
+
     /// <summary>
     /// Determines where the camera should be to be able to see all movers 
     /// </summary>

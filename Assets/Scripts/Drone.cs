@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Drone : Bee {
 
+    private HitPoints hp;
     public GameObject workerPrefab;
 
     private Mover myMover;
@@ -13,6 +14,10 @@ public class Drone : Bee {
 
     void Awake() {
         myMover = GetComponent<Mover>();
+        hp = GetComponent<HitPoints>();
+        if (hp == null) {
+            Debug.LogError("No hit point component on Drone");
+        }
     }
 
     public bool SpawnWorker() {
@@ -29,15 +34,21 @@ public class Drone : Bee {
     }
 
     protected override bool DamagePickup() {
-        return true; //TODO
+        bool dead = hp.decreaseHp(1);
+        if (dead) {
+            //todo
+        }
+        return true; 
     }
 
     protected override bool HealthPickup() {
+        hp.increaseHp(1);
         return true; //TODO
     }
 
     protected override bool SlowPickup() {
-        return true; //TODO
+        Global.instance.inputHandler.DecreaseAllSpeed(1);
+        return true; 
     }
 
     // Use this for initialization

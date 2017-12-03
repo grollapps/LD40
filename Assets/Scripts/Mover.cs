@@ -48,6 +48,12 @@ public class Mover : MonoBehaviour {
         curSpeed = speed;
     }
 
+    public void DecreaseSpeed(float amt) {
+        float curSpeedVal = curSpeed.magnitude;
+        curSpeedVal = Mathf.Max(curSpeedVal, amt + 0.1f);
+        curSpeed = curSpeed.normalized * (curSpeedVal - amt);
+    }
+
     public virtual void Freeze() {
         isFroze = true;
     }

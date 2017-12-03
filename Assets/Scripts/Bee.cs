@@ -22,6 +22,10 @@ public class Bee : HitReceiver {
                 }
                 break;
 
+            case HitObjType.FixedBlock:
+                DamagePickup();
+                break;
+
             case HitObjType.DamageBlock:
                 if (DamagePickup()) {
                     objHit.Consume();

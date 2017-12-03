@@ -59,6 +59,11 @@ public class Global : MonoBehaviour {
         cam.transform.position = Vector3.Lerp(curCamPos, nextCamPos, smoothSpeed * Time.deltaTime);
     }
 
+    public void FailLevel() {
+        inputHandler.FreezeAll();
+        Debug.Log("Level failed");
+    }
+
     public void EndRound() {
         inputHandler.FreezeAll();
     }
