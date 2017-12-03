@@ -976,6 +976,16 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224081374247814692, guid: f4e8609c22aee934a9a1661e32527f08,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.199951
+      objectReference: {fileID: 0}
+    - target: {fileID: 224438519346595104, guid: f4e8609c22aee934a9a1661e32527f08,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.199951
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4e8609c22aee934a9a1661e32527f08, type: 2}
   m_IsPrefabParent: 0
@@ -1050,6 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objType: 3
+  customValue: 0
 --- !u!1001 &1086216080
 Prefab:
   m_ObjectHideFlags: 0
@@ -1188,21 +1199,6 @@ Prefab:
     - target: {fileID: 224805450864053566, guid: 15e80cc1052431043b07e28264bdf2e5,
         type: 2}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 225759744165674556, guid: 15e80cc1052431043b07e28264bdf2e5,
-        type: 2}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 225759744165674556, guid: 15e80cc1052431043b07e28264bdf2e5,
-        type: 2}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 225759744165674556, guid: 15e80cc1052431043b07e28264bdf2e5,
-        type: 2}
-      propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1472,6 +1468,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4b691ad335ef114fbdf973ec0d251da, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1387092566 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224816656919626892, guid: f4e8609c22aee934a9a1661e32527f08,
+    type: 2}
+  m_PrefabInternal: {fileID: 1015654129}
 --- !u!1001 &1398542703
 Prefab:
   m_ObjectHideFlags: 0
@@ -1689,6 +1690,86 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb7a21fa603c771488e98bf98c033a13, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1875296974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1875296975}
+  - component: {fileID: 1875296977}
+  - component: {fileID: 1875296976}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1875296975
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875296974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1387092566}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -5}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1875296976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875296974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Arrow keys - move selected
+
+    Control keys - select movers
+
+    G - restarts level
+
+'
+--- !u!222 &1875296977
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875296974}
 --- !u!114 &1977922512 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114481924723916652, guid: 0ce52ded316d3394f829fdf8c575b336,

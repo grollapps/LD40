@@ -95,6 +95,8 @@ public class Global : MonoBehaviour {
     public void ResetLevel() {
         Debug.Log("Reset level");
         FailLevel();
+        inputHandler.Reset();
+        curLevel.Reset();
     }
 
     /// <summary>

@@ -17,23 +17,23 @@ public class Bee : HitReceiver {
                 break;
 
             case HitObjType.Health:
-                if (HealthPickup()) {
+                if (HealthPickup(objHit)) {
                     objHit.Consume();
                 }
                 break;
 
             case HitObjType.FixedBlock:
-                DamagePickup();
+                DamagePickup(objHit);
                 break;
 
             case HitObjType.DamageBlock:
-                if (DamagePickup()) {
+                if (DamagePickup(objHit)) {
                     objHit.Consume();
                 }
                 break;
 
             case HitObjType.Slow:
-                if (SlowPickup()) {
+                if (SlowPickup(objHit)) {
                     objHit.Consume();
                 }
                 break;
@@ -50,16 +50,16 @@ public class Bee : HitReceiver {
         return false;
     }
 
-    protected virtual bool HealthPickup() {
+    protected virtual bool HealthPickup(Hitable objHit) {
         Debug.Log("Health Pickup");
         return false;
     }
 
-    protected virtual bool DamagePickup() {
+    protected virtual bool DamagePickup(Hitable objHit) {
         Debug.Log("Damage Pickup");
         return false;
     }
-    protected virtual bool SlowPickup() {
+    protected virtual bool SlowPickup(Hitable objHit) {
         Debug.Log("Slow Pickup");
         return false;
     }

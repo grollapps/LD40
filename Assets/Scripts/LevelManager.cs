@@ -7,6 +7,11 @@ using UnityEngine;
 /// </summary>
 public class LevelManager : MonoBehaviour {
 
+    //camera rig starting pos
+    public GameObject cameraRig;
+    private Quaternion origCamRot;
+    private Vector3 origCamPos;
+
     //GameObjects holding checkpoints - used to update the checkpoint list
     public List<GameObject> checkpointParents;
 
@@ -14,6 +19,22 @@ public class LevelManager : MonoBehaviour {
     public List<Checkpoint> orderedCheckpoints;
     public int lastCheckpoint = 0; //last checkpoint passed
     public float[] distRemaining; //distance remaining at each checkpoint
+
+    void Awake() {
+        if (cameraRig == null) {
+            Debug.LogError("No camera rig assigned to level manager " + gameObject.name);
+        }
+        origCamRot = cameraRig.transform.rotation;
+        origCamPos = cameraRig.transform.position;
+    }
+
+    public void Reset() {
+        Debug.Log("Level manager reset");
+        lastCheckpoint = 0;
+        cameraRig.transform.position = origCamPos;
+        cameraRig.transform.rotation = origCamRot;
+    }
+
 
     // Use this for initialization
     void Start() {

@@ -25,9 +25,7 @@ public class InputHandler : MonoBehaviour {
     private bool isFrozen = false;
 
     void Awake() {
-        for (int i = 0; i < moverInputActive.Length; i++) {
-            moverInputActive[i] = false;
-        }
+        Reset();
     }
 
     // Use this for initialization
@@ -35,6 +33,16 @@ public class InputHandler : MonoBehaviour {
         FreezeAll(); //no input until StartAll is called
     }
 
+    public void Reset() {
+        startTime = 0;
+        lastElapsedTime = 0;
+        numMovers = 0;
+        for (int i = 0; i < moverInputActive.Length; i++) {
+            movers[i] = null;
+            moverInputActive[i] = false;
+        }
+        FreezeAll();
+    }
 
     /// <summary>
     /// Add the queen to the front of the mover list

@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objType: 5
+  customValue: 10
 --- !u!136 &136149992246559184
 CapsuleCollider:
   m_ObjectHideFlags: 1

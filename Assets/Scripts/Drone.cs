@@ -33,21 +33,21 @@ public class Drone : Bee {
         return false;
     }
 
-    protected override bool DamagePickup() {
-        bool dead = hp.decreaseHp(1);
+    protected override bool DamagePickup(Hitable objHit) {
+        bool dead = hp.decreaseHp((int)objHit.customValue);
         if (dead) {
             //todo
         }
         return true; 
     }
 
-    protected override bool HealthPickup() {
-        hp.increaseHp(1);
-        return true; //TODO
+    protected override bool HealthPickup(Hitable objHit) {
+        hp.increaseHp((int)objHit.customValue);
+        return true; 
     }
 
-    protected override bool SlowPickup() {
-        Global.instance.inputHandler.DecreaseAllSpeed(1);
+    protected override bool SlowPickup(Hitable objHit) {
+        Global.instance.inputHandler.DecreaseAllSpeed(objHit.customValue);
         return true; 
     }
 

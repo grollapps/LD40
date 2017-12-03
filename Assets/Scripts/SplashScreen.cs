@@ -19,6 +19,7 @@ public class SplashScreen : MonoBehaviour {
     private bool transitionInProgress = false;
     private float transitionEndTime = 0;
     private float transitionTargetAlpha = 0;
+    private float transitionSourceAlpha = 0;
 
     void Awake() {
         cg = GetComponent<CanvasGroup>();
@@ -49,44 +50,55 @@ public class SplashScreen : MonoBehaviour {
 
     public void setEnabled(bool enable) {
         isEnabled = enable;
-        updateState();
+        updateState(true);
+    }
+
+    public void setEnabled(bool enable, bool useTransition) {
+        isEnabled = enable;
+        updateState(useTransition);
     }
 
     public bool isSplashScreenEnabled() {
         return isEnabled;
     }
 
-    public void updateState() {
+    public void updateState(bool useTransition) {
         if (isEnabled) {
-            startTransition(1);
+            startTransition(1, useTransition);
             cg.interactable = true;
             cg.blocksRaycasts = true;
         } else {
-            startTransition(0);
+            startTransition(0, useTransition);
             cg.interactable = false;
             cg.blocksRaycasts = false;
         }
     }
 
-    private void startTransition(float targetAlpha) {
-        transitionTargetAlpha = targetAlpha;
-        transitionEndTime = Time.time + transitionTime;
-        transitionInProgress = true;
+    private void startTransition(float targetAlpha, bool useTransition) {
+        if (useTransition) {
+            transitionTargetAlpha = targetAlpha;
+            transitionSourceAlpha = 1 - targetAlpha;
+            transitionEndTime = Time.time + transitionTime;
+            transitionInProgress = true;
+        } else {
+            transitionInProgress = false;
+            cg.alpha = targetAlpha;
+        }
     }
 
 	// Use this for initialization
 	void Start () {
-        updateState();
+        updateState(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (transitionInProgress) {
             float newAlpha = transitionTargetAlpha;
-            if (transitionEndTime >= Time.time) {
+            if (Time.time >= transitionEndTime) {
                 transitionInProgress = false;
             } else {
-                newAlpha = Mathf.Lerp(cg.alpha, transitionTargetAlpha, 1 - (transitionEndTime - Time.time) / transitionTime);
+                newAlpha = Mathf.Lerp(transitionSourceAlpha, transitionTargetAlpha, 1 - ((transitionEndTime - Time.time)/transitionTime));
             }
             cg.alpha = newAlpha;
         }

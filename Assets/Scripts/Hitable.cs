@@ -10,6 +10,7 @@ public class Hitable : MonoBehaviour {
     private Collider myCollider;
 
     public HitObjType objType;
+    public float customValue = 0; //item specific value goes here, optionally
 
     void Awake() {
         myCollider = gameObject.GetComponent<Collider>();
