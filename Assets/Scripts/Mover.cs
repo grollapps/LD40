@@ -55,7 +55,13 @@ public class Mover : MonoBehaviour {
     }
 
     public virtual void Freeze() {
+        Debug.Log("Freeze mover " + gameObject.name);
         isFroze = true;
+    }
+
+    public virtual void Unfreeze() {
+        Debug.Log("Unfreeze mover " + gameObject.name);
+        isFroze = false;
     }
 	
 	// Update is called once per frame

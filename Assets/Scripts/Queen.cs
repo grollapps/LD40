@@ -38,21 +38,12 @@ public class Queen : Bee {
 
     protected override bool HealthPickup() {
         hp.increaseHp(1);
-        return true; 
+        return true;
     }
 
     protected override bool SlowPickup() {
         Global.instance.inputHandler.DecreaseAllSpeed(1);
-        return true; 
+        return true;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

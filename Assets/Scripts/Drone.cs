@@ -53,7 +53,22 @@ public class Drone : Bee {
 
     // Use this for initialization
     void Start () {
-        SpawnWorker(); //Test, remove
+        int numToSpawn = 1;
+        float rand = Random.Range(0, 12);
+        if (rand >= 11) {
+            numToSpawn = 5;
+        } else if (rand > 9) {
+            numToSpawn = 4;
+        } else if (rand > 6) {
+            numToSpawn = 3;
+        } else if (rand > 3) {
+            numToSpawn = 2;
+        } else {
+            numToSpawn = 1;
+        }
+        for (int i = 0; i < numToSpawn; i++) {
+            SpawnWorker();
+        }
 	}
 	
 	// Update is called once per frame

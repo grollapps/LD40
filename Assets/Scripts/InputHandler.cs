@@ -19,27 +19,40 @@ public class InputHandler : MonoBehaviour {
     //Amount fwd tick move multiplier
     public float fwdAmt = 0.01f;
 
+    private float startTime = 0;
+    private float lastElapsedTime = 0;
+
+    private bool isFrozen = false;
+
     void Awake() {
         for (int i = 0; i < moverInputActive.Length; i++) {
             moverInputActive[i] = false;
         }
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start() {
+        FreezeAll(); //no input until StartAll is called
+    }
 
+
+    /// <summary>
+    /// Add the queen to the front of the mover list
+    /// </summary>
+    /// <param name="m"></param>
+    /// <returns></returns>
     public int addFirstMover(Mover m) {
         Debug.Log("Add first mover");
-        movers[0] = m;
-        numMovers = 1;
-        return 0;
+        numMovers = 0;
+        return addMover(m);
     }
 
     public int addMover(Mover m) {
         Debug.Log("Add mover " + numMovers);
         movers[numMovers++] = m;
+        if (isFrozen) {
+            m.Freeze();
+        }
         return numMovers - 1;
     }
 
@@ -51,10 +64,33 @@ public class InputHandler : MonoBehaviour {
         return moverInputActive[index];
     }
 
+    public void StartTimer() {
+        startTime = Time.time;
+    }
+
+    public float StopTimer() {
+        lastElapsedTime = Time.time - startTime;
+        return lastElapsedTime;
+    }
+
+    public void StartAll() {
+        Debug.Log("Start all");
+        for (int i = 0; i < numMovers; i++) {
+            if (movers[i] != null) {
+                movers[i].Unfreeze();
+            }
+        }
+        isFrozen = false;
+        StartTimer();
+    }
+
     /// <summary>
-    /// Stop all movers
+    /// Stop all movers and all keyboard input other than a few keys
     /// </summary>
     public void FreezeAll() {
+        Debug.Log("Freeze all");
+        isFrozen = true;
+        StopTimer();
         for (int i = 0; i < numMovers; i++) {
             if (movers[i] != null) {
                 movers[i].Freeze();
@@ -97,36 +133,72 @@ public class InputHandler : MonoBehaviour {
         return numMovers;
     }
 
-	
-	// Update is called once per frame
-	void Update () {
 
-        float leftRight = Input.GetAxis("Horizontal");
-        fireLeftRight(leftRight);
+    // Update is called once per frame
+    void Update() {
 
-        float downUp = Input.GetAxis("Vertical");
-        fireDownUp(downUp);
+        if (!isFrozen) {
+            float leftRight = Input.GetAxis("Horizontal");
+            fireLeftRight(leftRight);
 
-        //Test num keys
-        if (Input.GetButtonDown("1")) {
-            Global.instance.hudManager.toggleTrigger(0);
+            float downUp = Input.GetAxis("Vertical");
+            fireDownUp(downUp);
+
+            //Test num keys
+            if (Input.GetButtonDown("1")) {
+                if (movers[0] != null) {
+                    Global.instance.hudManager.toggleTrigger(0);
+                }
+            }
+            if (Input.GetButtonDown("2")) {
+                if (movers[1] != null) {
+                    Global.instance.hudManager.toggleTrigger(1);
+                }
+            }
+            if (Input.GetButtonDown("3")) {
+                if (movers[2] != null) {
+                    Global.instance.hudManager.toggleTrigger(2);
+                }
+            }
+            if (Input.GetButtonDown("Q")) {
+                if (movers[3] != null) {
+                    Global.instance.hudManager.toggleTrigger(3);
+                }
+            }
+            if (Input.GetButtonDown("W")) {
+                if (movers[4] != null) {
+                    Global.instance.hudManager.toggleTrigger(4);
+                }
+            }
+            if (Input.GetButtonDown("E")) {
+                if (movers[5] != null) {
+                    Global.instance.hudManager.toggleTrigger(5);
+                }
+            }
         }
-        if (Input.GetButtonDown("2")) {
-            Global.instance.hudManager.toggleTrigger(1);
+
+        //these keys are available outside of normal level play
+        if (Input.GetButtonDown("enter")) {
+            handleAckPressed();
         }
-        if (Input.GetButtonDown("3")) {
-            Global.instance.hudManager.toggleTrigger(2);
+        if (Input.GetButtonDown("space")) {
+            handleAckPressed();
         }
-        if (Input.GetButtonDown("Q")) {
-            Global.instance.hudManager.toggleTrigger(3);
+        if (Input.GetButtonDown("G")) {
+            handleResetPressed();
         }
-        if (Input.GetButtonDown("W")) {
-            Global.instance.hudManager.toggleTrigger(4);
+    }
+
+    private void handleAckPressed() {
+        if (isFrozen) {
+            Global.instance.Advance();
         }
-        if (Input.GetButtonDown("E")) {
-            Global.instance.hudManager.toggleTrigger(5);
-        }
-	}
+    }
+
+    private void handleResetPressed() {
+        Debug.Log("Reset");
+        Global.instance.ResetLevel();
+    }
 
     private void fireLeftRight(float val) {
         for (int i = 0; i < movers.Length; i++) {

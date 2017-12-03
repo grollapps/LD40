@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages data for a single level
+/// </summary>
 public class LevelManager : MonoBehaviour {
 
     //GameObjects holding checkpoints - used to update the checkpoint list

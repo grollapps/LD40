@@ -31,7 +31,7 @@ public class Bee : HitReceiver {
                     objHit.Consume();
                 }
                 break;
-                
+
             case HitObjType.Slow:
                 if (SlowPickup()) {
                     objHit.Consume();
@@ -70,13 +70,4 @@ public class Bee : HitReceiver {
         return false;
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

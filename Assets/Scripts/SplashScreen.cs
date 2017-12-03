@@ -14,6 +14,12 @@ public class SplashScreen : MonoBehaviour {
     private bool isEnabled = false;
     private CanvasGroup cg;
 
+    public float transitionTime = 1.3f;
+
+    private bool transitionInProgress = false;
+    private float transitionEndTime = 0;
+    private float transitionTargetAlpha = 0;
+
     void Awake() {
         cg = GetComponent<CanvasGroup>();
         if (cg == null) {
@@ -46,16 +52,26 @@ public class SplashScreen : MonoBehaviour {
         updateState();
     }
 
+    public bool isSplashScreenEnabled() {
+        return isEnabled;
+    }
+
     public void updateState() {
         if (isEnabled) {
-            cg.alpha = 1;
+            startTransition(1);
             cg.interactable = true;
             cg.blocksRaycasts = true;
         } else {
-            cg.alpha = 0;
+            startTransition(0);
             cg.interactable = false;
             cg.blocksRaycasts = false;
         }
+    }
+
+    private void startTransition(float targetAlpha) {
+        transitionTargetAlpha = targetAlpha;
+        transitionEndTime = Time.time + transitionTime;
+        transitionInProgress = true;
     }
 
 	// Use this for initialization
@@ -65,6 +81,16 @@ public class SplashScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (transitionInProgress) {
+            float newAlpha = transitionTargetAlpha;
+            if (transitionEndTime >= Time.time) {
+                transitionInProgress = false;
+            } else {
+                newAlpha = Mathf.Lerp(cg.alpha, transitionTargetAlpha, 1 - (transitionEndTime - Time.time) / transitionTime);
+            }
+            cg.alpha = newAlpha;
+        }
 		
 	}
+
 }
