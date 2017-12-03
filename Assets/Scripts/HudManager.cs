@@ -17,6 +17,9 @@ public class HudManager : MonoBehaviour {
     public Text[] triggerOnText;
     public Text[] triggerOffText;
 
+    //Individual HUD per player obj.  Populated at runtime.
+    private Text[] miniHud = new Text[6];
+
     public float metersToGoal = 0f;
 
 	// Use this for initialization
@@ -32,7 +35,27 @@ public class HudManager : MonoBehaviour {
         //triggerStateOn[0] = true; //first always starts on	
         toggleTrigger(0);
 	}
+
+    public void registerMiniHud(int index, Text idText) {
+        miniHud[index] = idText;
+        updateMiniHud(index);
+    }
 	
+    public void unregisterMiniHud(int index) {
+        miniHud[index] = null;
+    }
+
+    private void updateMiniHud(int index) {
+        if (miniHud[index] != null) {
+            Text mh = miniHud[index];
+            if (triggerStateOn[index]) {
+                mh.color = Color.green;
+            } else {
+                mh.color = Color.red;
+            }
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
 	}
@@ -60,6 +83,7 @@ public class HudManager : MonoBehaviour {
         if (triggerOffText.Length > index) {
             setTextOnOff(triggerOffText[index], !newState);
         }
+        updateMiniHud(index);
     }
 
     private void setTextOnOff(Text t, bool isVisible) {

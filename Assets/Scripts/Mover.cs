@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Controls character speed.  Assign to any object that will be moving with a variable speed.
@@ -9,6 +10,9 @@ public class Mover : MonoBehaviour {
 
     public float ypos = 1.0f;
     public float maxFwdSpeed = 20.0f;
+
+    //UI text that displays the key mapped to this object
+    public Text myIdText;
 
     //Generally z is forward, x is side to side.  Y is up/down (unused)
     public Vector3 curSpeed = Vector3.zero;
@@ -31,7 +35,10 @@ public class Mover : MonoBehaviour {
 	protected virtual void Start () {
         prevPosition = transform.position;
         lastSpeed = curSpeed;
-        Global.instance.inputHandler.addMover(this);
+        int moverIdx = Global.instance.inputHandler.addMover(this);
+        string keyText = Global.instance.inputHandler.moverKeys[moverIdx];
+        myIdText.text = keyText;
+        Global.instance.hudManager.registerMiniHud(moverIdx, myIdText);
 	}
 
     public void setStartParams(Vector3 position, Vector3 speed) {

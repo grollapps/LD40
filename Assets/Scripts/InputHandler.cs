@@ -7,6 +7,8 @@ using UnityEngine;
 /// </summary>
 public class InputHandler : MonoBehaviour {
 
+    public string[] moverKeys = new string[] { "1", "2", "3", "Q", "W", "E" };
+
     private Mover[] movers = new Mover[6];  //one per input toggle key
     private bool[] moverInputActive = new bool[6];
     private int numMovers = 0; //number of actual movers in play
@@ -28,15 +30,17 @@ public class InputHandler : MonoBehaviour {
 		
 	}
 
-    public void addFirstMover(Mover m) {
+    public int addFirstMover(Mover m) {
         Debug.Log("Add first mover");
         movers[0] = m;
         numMovers = 1;
+        return 0;
     }
 
-    public void addMover(Mover m) {
+    public int addMover(Mover m) {
         Debug.Log("Add mover " + numMovers);
         movers[numMovers++] = m;
+        return numMovers - 1;
     }
 
     public void setMoverInputActive(int index, bool isActive) {
@@ -104,6 +108,15 @@ public class InputHandler : MonoBehaviour {
         }
         if (Input.GetButtonDown("3")) {
             Global.instance.hudManager.toggleTrigger(2);
+        }
+        if (Input.GetButtonDown("Q")) {
+            Global.instance.hudManager.toggleTrigger(3);
+        }
+        if (Input.GetButtonDown("W")) {
+            Global.instance.hudManager.toggleTrigger(4);
+        }
+        if (Input.GetButtonDown("E")) {
+            Global.instance.hudManager.toggleTrigger(5);
         }
 	}
 
