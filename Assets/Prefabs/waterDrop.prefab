@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4355696580982506}
   - component: {fileID: 33669320312736474}
   - component: {fileID: 23930332149125162}
-  - component: {fileID: 114859872346267948}
+  - component: {fileID: 114105871947788282}
   m_Layer: 0
   m_Name: slowsign
   m_TagString: Untagged
@@ -153,24 +153,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515224837041448}
   m_Mesh: {fileID: 4300000, guid: 7bc5babebd97f7644ad38c11fde9f596, type: 3}
+--- !u!114 &114105871947788282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515224837041448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37d2c3431e2ba44e901993cbfe3c2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.45
 --- !u!114 &114177743716902050
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1951883576212742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dbd62b9df59b234684d8df9778687ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objType: 5
---- !u!114 &114859872346267948
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515224837041448}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dbd62b9df59b234684d8df9778687ca, type: 3}

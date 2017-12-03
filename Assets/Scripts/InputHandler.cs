@@ -67,7 +67,7 @@ public class InputHandler : MonoBehaviour {
             return movers[0].transform.position;
         }
         //Somewhere between first and last
-        return Vector3.Lerp(movers[0].transform.position, movers[numMovers - 1].transform.position, 0.9f);
+        return Vector3.Lerp(movers[0].transform.position, movers[numMovers - 1].transform.position, 0.6f);
     }
 
     public int getNumMovers() {

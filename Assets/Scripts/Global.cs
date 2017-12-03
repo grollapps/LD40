@@ -13,6 +13,7 @@ public class Global : MonoBehaviour {
     public InputHandler inputHandler;
     public Camera mainCamera;
     public Vector3 camOffset = Vector3.zero; //default camera offset from target
+    public float moverOffsetFactor = 0.5f; //multiplier for camera distance per mover added
 
     void Awake() {
         if (instance == null) {
@@ -44,7 +45,7 @@ public class Global : MonoBehaviour {
         Vector3 target = inputHandler.getCamTarget();
         Vector3 curCamPos = cam.transform.position;
         Vector3 offset = Global.instance.camOffset;
-        offset = new Vector3(offset.x, offset.y * inputHandler.getNumMovers(), offset.z); //adjust height (zoom out for more movers)
+        offset = new Vector3(offset.x, offset.y * moverOffsetFactor * inputHandler.getNumMovers(), offset.z); //adjust height (zoom out for more movers)
         Vector3 nextCamPos = target - offset;
         float smoothSpeed = Vector3.Magnitude(nextCamPos - curCamPos) * 0.5f;
         cam.transform.position = Vector3.Lerp(curCamPos, nextCamPos, smoothSpeed * Time.deltaTime);
