@@ -70,6 +70,17 @@ public class InputHandler : MonoBehaviour {
         return Vector3.Lerp(movers[0].transform.position, movers[numMovers - 1].transform.position, 0.6f);
     }
 
+    /// <summary>
+    /// Get the current player position in world coordinates
+    /// </summary>
+    /// <returns></returns>
+    public Vector3 getQueenCurPos() {
+        if (numMovers < 1) {
+            return Vector3.zero;
+        }
+        return movers[0].transform.position;
+    }
+
     public int getNumMovers() {
         return numMovers;
     }

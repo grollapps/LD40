@@ -9,11 +9,14 @@ public class Global : MonoBehaviour {
 
     public static Global instance;
 
+    public LevelManager curLevel;
     public HudManager hudManager;
     public InputHandler inputHandler;
     public Camera mainCamera;
     public Vector3 camOffset = Vector3.zero; //default camera offset from target
     public float moverOffsetFactor = 0.5f; //multiplier for camera distance per mover added
+
+    public int levelNum = 1;
 
     void Awake() {
         if (instance == null) {
@@ -37,6 +40,11 @@ public class Global : MonoBehaviour {
         mainCamera = Camera.main;
         if (mainCamera == null) {
             Debug.LogError("Camera missing");
+        }
+
+        curLevel = GameObject.Find("LevelManager_" + levelNum).GetComponent<LevelManager>();
+        if (curLevel == null) {
+            Debug.LogError("Current level manager is not set");
         }
     }
 

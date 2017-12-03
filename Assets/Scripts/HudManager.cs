@@ -8,6 +8,9 @@ using UnityEngine.UI;
 /// </summary>
 public class HudManager : MonoBehaviour {
 
+    //Reference to the Text that will display remaining distance
+    public Text distTextValue;
+
     //One trigger per mover button that can be pressed
     private bool[] triggerStateOn = new bool[6];
 
@@ -32,8 +35,12 @@ public class HudManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
+
+    public void setRemainingDist(float value) {
+        string distStr = value.ToString("F1");
+        distTextValue.text = distStr;
+    }
 
     /// <summary>
     /// Swap the referenced trigger to either on or off, opposite of the current state
