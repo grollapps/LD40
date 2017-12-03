@@ -18,6 +18,8 @@ public class Queen : Bee {
         int numDrones = Global.instance.inputHandler.getNumMovers();
         Vector3 position = transform.position + (droneSpawnOffset * numDrones);
         drone.GetComponent<Mover>().setStartParams(position, myMover.curSpeed);
+        //Automatically activate input on new movers
+        Global.instance.hudManager.toggleTrigger(numDrones, true);
         return true;
     }
 
