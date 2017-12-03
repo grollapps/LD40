@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour {
         Vector3 lastCp = orderedCheckpoints[lastCheckpoint].gameObject.transform.position;
         float distFromLast = (curPos - lastCp).magnitude;
         float d = distRemaining[lastCheckpoint] - distFromLast;
-        Debug.Log("getDist: curPos=" + curPos + ", lastCp=" + lastCp + ", distFromLast=" + distFromLast + ", d=" + d);
+        //Debug.Log("getDist: curPos=" + curPos + ", lastCp=" + lastCp + ", distFromLast=" + distFromLast + ", d=" + d);
         return d;
     }
 
@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         float remainingDist = getDistanceRemaining(Global.instance.inputHandler.getQueenCurPos());
-        remainingDist = 3.1f * Mathf.Max(0, remainingDist); //enhance our numbers
+        remainingDist = 0.379f * Mathf.Max(0, remainingDist) - 2; //enhance our numbers
         Global.instance.hudManager.setRemainingDist(remainingDist);
     }
 

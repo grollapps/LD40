@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33158943726225032}
   - component: {fileID: 23382740478025464}
   m_Layer: 0
-  m_Name: StraightTile
+  m_Name: floortile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
