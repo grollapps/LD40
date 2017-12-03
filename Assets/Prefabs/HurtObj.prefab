@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65365616546956360}
   - component: {fileID: 23263374997670760}
   - component: {fileID: 114526678082293846}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HurtObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}

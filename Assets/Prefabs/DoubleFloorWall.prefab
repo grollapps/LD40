@@ -21,8 +21,24 @@ GameObject:
   - component: {fileID: 4105607269288134}
   - component: {fileID: 33671230990108132}
   - component: {fileID: 23100529953923662}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bush_low
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1055779918120792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4536852994107772}
+  - component: {fileID: 65665321200371792}
+  m_Layer: 8
+  m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +54,7 @@ GameObject:
   - component: {fileID: 4837654490123994}
   - component: {fileID: 33553639641819128}
   - component: {fileID: 23239084799541830}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bush_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +71,7 @@ GameObject:
   - component: {fileID: 4040076603034900}
   - component: {fileID: 33809228319425638}
   - component: {fileID: 23827435955678368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bush_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +88,7 @@ GameObject:
   - component: {fileID: 4126285426607350}
   - component: {fileID: 33305462873625982}
   - component: {fileID: 23220929821706894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floortile_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +103,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4493240021962808}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoubleFloorWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +118,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4969536821970336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: treewall_hi_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +135,7 @@ GameObject:
   - component: {fileID: 4844687178023368}
   - component: {fileID: 33902708359584956}
   - component: {fileID: 23767281439736126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bush_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4864442723514234}
   - component: {fileID: 65861870861044880}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: treewall_double_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +166,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4123577714432208}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: treewall_hi_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4322947939945636}
   - component: {fileID: 65314742138061186}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: treewall_double_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,8 +199,8 @@ GameObject:
   - component: {fileID: 4322630247695634}
   - component: {fileID: 33983686312527264}
   - component: {fileID: 23765381400457420}
-  m_Layer: 0
-  m_Name: StraightTile_fwd
+  m_Layer: 10
+  m_Name: floortile_fwd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,15 +278,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1649016791798180}
-  m_LocalRotation: {x: -0.0059263227, y: 0.707082, z: 0.0059263227, w: 0.707082}
-  m_LocalPosition: {x: -252.29, y: 324.81042, z: -3.9099998}
+  m_LocalRotation: {x: 0.012586614, y: 0.7069948, z: -0.012586614, w: 0.7069948}
+  m_LocalPosition: {x: -252.5519, y: 324.8097, z: -3.9099998}
   m_LocalScale: {x: 2.000001, y: 2, z: -1}
   m_Children:
   - {fileID: 4105607269288134}
   - {fileID: 4123577714432208}
   m_Father: {fileID: 4493240021962808}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -0.96000004, y: 90.00001, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.0400002, y: 90.00001, z: 0}
 --- !u!4 &4493240021962808
 Transform:
   m_ObjectHideFlags: 1
@@ -285,8 +301,22 @@ Transform:
   - {fileID: 4322630247695634}
   - {fileID: 4864442723514234}
   - {fileID: 4322947939945636}
+  - {fileID: 4536852994107772}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4536852994107772
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055779918120792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4493240021962808}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4837654490123994
 Transform:
@@ -587,8 +617,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24, y: 5, z: 1}
+  m_Size: {x: -24, y: 5, z: 1}
   m_Center: {x: -6, y: 2.5, z: 0}
+--- !u!65 &65665321200371792
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055779918120792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 48, y: 15, z: 4}
+  m_Center: {x: -260, y: 328.34, z: 8}
 --- !u!65 &65861870861044880
 BoxCollider:
   m_ObjectHideFlags: 1
