@@ -11,8 +11,18 @@ public class SplashScreen : MonoBehaviour {
 
     public Image imageSlot;
 
+    public GameObject scorePanel;
+
+    //time to run goes here
+    public Text elapsedTimeValue;
+    public Text totalHpValue;
+    public Text totalBeesValue;
+    public Text totalScoreTimeValue;
+    public Text totalScoreValue;
+
     private bool isEnabled = false;
     private CanvasGroup cg;
+    private CanvasGroup scoreCg;
 
     public float transitionTime = 1.3f;
 
@@ -26,7 +36,33 @@ public class SplashScreen : MonoBehaviour {
         if (cg == null) {
             Debug.LogError("No canvas group on splash screen");
         }
+        scoreCg = scorePanel.GetComponent<CanvasGroup>();
+        if (scoreCg == null) {
+            Debug.LogError("No score panel set");
+        }
         setTitleImage();
+    }
+
+    public void setScore(float elapsedTime, float[] scoreParts) {
+        elapsedTimeValue.text = elapsedTime.ToString("F1");
+        totalBeesValue.text = scoreParts[0].ToString("F0");
+        totalHpValue.text = scoreParts[1].ToString("F0");
+        totalScoreTimeValue.text = scoreParts[2].ToString("F1");
+        totalScoreValue.text = scoreParts[3].ToString("F0");
+        scoreCg.alpha = 1;
+        scoreCg.interactable = true;
+        scoreCg.blocksRaycasts = true;
+
+    }
+
+    public void clearScore() {
+        elapsedTimeValue.text = "0";
+        totalHpValue.text = "0";
+        totalBeesValue.text = "0";
+        totalScoreValue.text = "0";
+        scoreCg.alpha = 0;
+        scoreCg.interactable = false;
+        scoreCg.blocksRaycasts = false;
     }
 
     public void setTitleImage() {

@@ -20,6 +20,10 @@ public class Drone : Bee {
         }
     }
 
+    public override int getHp() {
+        return hp.hp;
+    }
+
     public bool SpawnWorker() {
         GameObject worker = Instantiate(workerPrefab);
         worker.GetComponent<RadialMover>().setParent(transform);

@@ -45,6 +45,10 @@ public class Bee : HitReceiver {
         }
     }
 
+    public virtual int getHp() {
+        return 0;
+    }
+
     protected virtual bool SpawnDrone() {
         Debug.Log("Spawn Drone");
         return false;

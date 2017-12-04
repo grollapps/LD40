@@ -52,9 +52,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fd5e0d06053d5418ccf5fe7c352a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splashScreen: {fileID: 0}
+  curLevel: {fileID: 0}
+  hudManager: {fileID: 0}
   inputHandler: {fileID: 0}
   mainCamera: {fileID: 0}
-  camOffset: {x: 0, y: -6, z: 5}
+  camOffset: {x: 0, y: -5, z: 3.5}
+  moverOffsetFactor: 0.5
+  levelNum: 1
+  maxLevel: 1
 --- !u!114 &114783563969002970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,5 +72,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e066273c4092b2042942980b89822aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sideAmt: 0.05
-  fwdAmt: 0.01
+  moverKeys:
+  - 1
+  - 2
+  - 3
+  - Q
+  - W
+  - E
+  sideAmt: 0.04
+  fwdAmt: 0.005

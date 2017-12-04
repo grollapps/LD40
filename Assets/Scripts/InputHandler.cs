@@ -88,6 +88,33 @@ public class InputHandler : MonoBehaviour {
         return lastElapsedTime;
     }
 
+    public float getElapsedTime() {
+        return lastElapsedTime;
+    }
+
+    /// <summary>
+    /// returns score as {numBees, numTotHp, scoreFactor, totalScore}
+    /// </summary>
+    /// <returns></returns>
+    public float[] calcScore() {
+        float[] sc = new float[4];
+        for (int i = 0; i < numMovers; i++) {
+            if (movers[i] != null) {
+                Bee bee = movers[i].gameObject.GetComponent<Bee>();
+                if (bee != null) {
+                    sc[0]++;
+                    sc[1] += bee.getHp();
+                }
+            }
+        }
+        sc[2] = 500.0f / lastElapsedTime;
+
+        float totalScore = sc[0] * 2.5f + sc[1] + sc[2];
+        sc[3] = totalScore;
+
+        return sc;
+    }
+
     public void StartAll() {
         Debug.Log("Start all");
         isFrozen = false;

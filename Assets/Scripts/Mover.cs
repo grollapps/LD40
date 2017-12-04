@@ -52,6 +52,7 @@ public class Mover : MonoBehaviour {
         float curSpeedVal = curSpeed.magnitude;
         curSpeedVal = Mathf.Max(curSpeedVal, amt + 0.1f);
         curSpeed = curSpeed.normalized * (curSpeedVal - amt);
+        lastSpeed = curSpeed;
     }
 
     public virtual void Freeze() {
@@ -74,9 +75,9 @@ public class Mover : MonoBehaviour {
         if (curSpeed.magnitude > maxFwdSpeed) {
             curSpeed = curSpeed.normalized * maxFwdSpeed;
         }
-        lastSpeed = curSpeed;
         //curSpeed *= Time.deltaTime  * transform.forward;
         Vector3 influence = new Vector3(nextLeftRight, 0, nextDownUp); //TODO cap influence amounts
+        lastSpeed = curSpeed + influence * 0.1f;
         //Debug.Log("Update pos");
         //Debug.Log(influence);
         //Debug.Log(curSpeed);

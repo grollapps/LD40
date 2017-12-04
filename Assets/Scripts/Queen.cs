@@ -18,6 +18,10 @@ public class Queen : Bee {
         }
     }
 
+    public override int getHp() {
+        return hp.hp;
+    }
+
     protected override bool SpawnDrone() {
         GameObject drone = Instantiate(dronePrefab);
         int numDrones = Global.instance.inputHandler.getNumMovers();

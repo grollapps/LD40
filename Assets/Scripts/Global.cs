@@ -21,6 +21,7 @@ public class Global : MonoBehaviour {
     public int levelNum = 1;
     public int maxLevel = 1;
     private bool levelFailed = false;
+    private bool gameOver = false;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -67,6 +68,7 @@ public class Global : MonoBehaviour {
         if (splashScreen == null) {
             Debug.LogError("Spash screen is not set");
         }
+        splashScreen.clearScore();
     }
 
     void LateUpdate() {
@@ -88,8 +90,13 @@ public class Global : MonoBehaviour {
             ResetLevel();
         } else {
             Debug.Log("Advance screen");
-            if (splashScreen.isSplashScreenEnabled()) {
-                StartLevel();
+            if (gameOver) {
+                splashScreen.setTitleImage();
+                gameOver = false;
+            } else {
+                if (splashScreen.isSplashScreenEnabled()) {
+                    StartLevel();
+                }
             }
         }
     }
@@ -103,6 +110,7 @@ public class Global : MonoBehaviour {
         curLevel.Reset();
         hudManager.Reset();
         levelFailed = false;
+        gameOver = false;
         StartLevel();
     }
 
@@ -114,6 +122,7 @@ public class Global : MonoBehaviour {
 
     public void StartLevel() {
         splashScreen.clearImage();
+        splashScreen.clearScore();
         inputHandler.StartAll();
     }
 
@@ -124,13 +133,17 @@ public class Global : MonoBehaviour {
         levelFailed = true;
         inputHandler.FreezeAll();
         splashScreen.setFailImage();
+        splashScreen.setScore(inputHandler.getElapsedTime(), inputHandler.calcScore());
         Debug.Log("Level failed");
     }
 
     public void EndRound() {
         inputHandler.FreezeAll();
+        splashScreen.setScore(inputHandler.getElapsedTime(), inputHandler.calcScore());
         splashScreen.setPassedImage();
+        gameOver = true;
     }
+
 
 	// Use this for initialization
 	void Start () {
