@@ -813,6 +813,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114654891114463424, guid: e4dc810469ebe1f45b87feec57dcdecd,
         type: 2}
+      propertyPath: cameraRig
+      value: 
+      objectReference: {fileID: 210310148}
+    - target: {fileID: 114654891114463424, guid: e4dc810469ebe1f45b87feec57dcdecd,
+        type: 2}
       propertyPath: checkpointParents.Array.data[0]
       value: 
       objectReference: {fileID: 1276547812}

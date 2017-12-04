@@ -51,6 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79d2d92dcd415942881f7d6befcd8a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraRig: {fileID: 0}
+  queenPrefab: {fileID: 1389649686831682, guid: 5e572d4cdaf44174e98379844ae7b508,
+    type: 2}
   checkpointParents:
   - {fileID: 0}
   - {fileID: 0}

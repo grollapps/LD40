@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour {
     private Quaternion origCamRot;
     private Vector3 origCamPos;
 
+    //queen bee starting pos
+    public GameObject queenPrefab;
+
     //GameObjects holding checkpoints - used to update the checkpoint list
     public List<GameObject> checkpointParents;
 
@@ -26,19 +29,24 @@ public class LevelManager : MonoBehaviour {
         }
         origCamRot = cameraRig.transform.rotation;
         origCamPos = cameraRig.transform.position;
+
+        if (queenPrefab == null) {
+            Debug.LogError("No queen set for level");
+        }
     }
 
     public void Reset() {
         Debug.Log("Level manager reset");
-        lastCheckpoint = 0;
+        lastCheckpoint = 0; //start cp is always behind where we actually start
         cameraRig.transform.position = origCamPos;
         cameraRig.transform.rotation = origCamRot;
+        Instantiate(queenPrefab);
     }
 
 
     // Use this for initialization
     void Start() {
-        lastCheckpoint = 0; //start cp is always behind where we actually start
+        Reset();
         if (orderedCheckpoints == null || orderedCheckpoints.Count < 1) {
             Debug.LogError("Checkpoints not setup");
         }

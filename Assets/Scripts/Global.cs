@@ -20,6 +20,7 @@ public class Global : MonoBehaviour {
 
     public int levelNum = 1;
     public int maxLevel = 1;
+    private bool levelFailed = false;
 
     void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -83,20 +84,26 @@ public class Global : MonoBehaviour {
     /// User is advancing the current screen
     /// </summary>
     public void Advance() {
-        Debug.Log("Advance screen");
-        if (splashScreen.isSplashScreenEnabled()) {
-            StartLevel();
+        if (levelFailed) {
+            ResetLevel();
+        } else {
+            Debug.Log("Advance screen");
+            if (splashScreen.isSplashScreenEnabled()) {
+                StartLevel();
+            }
         }
     }
 
     /// <summary>
-    /// User is restarting the level
+    /// Restarts the current level
     /// </summary>
     public void ResetLevel() {
         Debug.Log("Reset level");
-        FailLevel();
         inputHandler.Reset();
         curLevel.Reset();
+        hudManager.Reset();
+        levelFailed = false;
+        StartLevel();
     }
 
     /// <summary>
@@ -110,7 +117,11 @@ public class Global : MonoBehaviour {
         inputHandler.StartAll();
     }
 
+    /// <summary>
+    /// User fails level or relquest to restart it
+    /// </summary>
     public void FailLevel() {
+        levelFailed = true;
         inputHandler.FreezeAll();
         splashScreen.setFailImage();
         Debug.Log("Level failed");

@@ -37,11 +37,18 @@ public class InputHandler : MonoBehaviour {
         startTime = 0;
         lastElapsedTime = 0;
         numMovers = 0;
+        FreezeAll();
+
+        Debug.Log("Cleaning up bees");
+        Bee[] bees = FindObjectsOfType<Bee>();
+        foreach (Bee b in bees) {
+            Destroy(b.gameObject);
+        }
+
         for (int i = 0; i < moverInputActive.Length; i++) {
             movers[i] = null;
             moverInputActive[i] = false;
         }
-        FreezeAll();
     }
 
     /// <summary>
@@ -83,12 +90,12 @@ public class InputHandler : MonoBehaviour {
 
     public void StartAll() {
         Debug.Log("Start all");
+        isFrozen = false;
         for (int i = 0; i < numMovers; i++) {
             if (movers[i] != null) {
                 movers[i].Unfreeze();
             }
         }
-        isFrozen = false;
         StartTimer();
     }
 
@@ -119,6 +126,10 @@ public class InputHandler : MonoBehaviour {
     /// </summary>
     /// <returns></returns>
     public Vector3 getCamTarget() {
+        if (numMovers < 1) {
+            return Vector3.zero;
+        }
+
         if (numMovers == 1) {
             return movers[0].transform.position;
         }
@@ -205,7 +216,7 @@ public class InputHandler : MonoBehaviour {
 
     private void handleResetPressed() {
         Debug.Log("Reset");
-        Global.instance.ResetLevel();
+        Global.instance.FailLevel();
     }
 
     private void fireLeftRight(float val) {

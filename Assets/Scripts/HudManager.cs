@@ -24,6 +24,10 @@ public class HudManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Reset();
+	}
+
+    public void Reset() {
         for (int i = 0; i < triggerStateOn.Length; i++) {
             triggerStateOn[i] = false;
         }
@@ -34,7 +38,7 @@ public class HudManager : MonoBehaviour {
 
         //triggerStateOn[0] = true; //first always starts on	
         toggleTrigger(0);
-	}
+    }
 
     public void registerMiniHud(int index, Text idText) {
         miniHud[index] = idText;
