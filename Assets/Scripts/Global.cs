@@ -93,6 +93,7 @@ public class Global : MonoBehaviour {
             if (gameOver) {
                 splashScreen.setTitleImage();
                 gameOver = false;
+                levelFailed = true;
             } else {
                 if (splashScreen.isSplashScreenEnabled()) {
                     StartLevel();
