@@ -107,9 +107,9 @@ public class InputHandler : MonoBehaviour {
                 }
             }
         }
-        sc[2] = 500.0f / lastElapsedTime;
+        sc[2] = 600.0f / lastElapsedTime;
 
-        float totalScore = sc[0] * 2.5f + sc[1] + sc[2];
+        float totalScore = sc[0] * 4.5f + sc[1] + sc[2];
         sc[3] = totalScore;
 
         return sc;
@@ -232,6 +232,9 @@ public class InputHandler : MonoBehaviour {
         }
         if (Input.GetButtonDown("G")) {
             handleResetPressed();
+        }
+        if (Input.GetButtonDown("cancel")) {
+            Application.Quit();
         }
     }
 

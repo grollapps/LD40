@@ -19,7 +19,7 @@ public class RadialMover : Mover {
 
     }
 
-    protected override void Update() {
+    protected override void FixedUpdate() {
 
         //orbit the parent
         Quaternion rot = Quaternion.AngleAxis(120.0f, transform.up);

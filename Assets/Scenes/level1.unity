@@ -3819,13 +3819,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Arrow keys - move selected
+  m_Text: 'Arrow keys - Move selected
 
-    Control keys - select movers
+    Control keys - Select movers
 
-    G - restarts level
+    G - Restart level
 
-'
+    Esc - Quit game'
 --- !u!222 &1875296977
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -183,7 +183,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: cancel
-    descriptiveName: Cancel
+    descriptiveName: Quit
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: escape
